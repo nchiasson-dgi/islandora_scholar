@@ -151,7 +151,7 @@ function islandora_scholar_get_view(AbstractObject $object) {
     }
   }
 
-  $default_viewer = variable_get('islandora_scholar_viewers');
+  $default_viewer = variable_get('islandora_scholar_viewers', array('default' => 'none',));
   $default_viewer = $default_viewer['default'];
   if (isset($object['PDF']) && islandora_datastream_access(ISLANDORA_VIEW_OBJECTS, $object['PDF']) && $default_viewer == 'none') {
     $filename = str_replace(":", "_", $object->id);
